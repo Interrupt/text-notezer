@@ -1,0 +1,37 @@
+body
+{
+	margin: 0;
+	padding: 0;
+	background-color: #383838;
+	
+}
+
+#header
+{
+  height: 60px;
+  color: #fff;
+	background-color: #2E2E2E;
+	border-bottom: solid 1px #2b2b2b;
+}
+
+#header img.header
+{
+  padding-left: 60px;
+	padding-bottom: 12px;
+}
+
+#header img.logo
+{
+	padding-left: 6px;
+	padding-top: 6px;
+}
+
+#main
+{
+  color: #fff;
+}
+
+div.note
+{
+  background-color: #e6e394;
+}
