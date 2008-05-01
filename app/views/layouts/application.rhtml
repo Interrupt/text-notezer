@@ -9,8 +9,18 @@
 </head>
 <body>
 	<div id="header">
-		<%= image_tag 'header.png', :class => 'header' %>
-		<%= image_tag 'logo.png', :class => 'logo' %>
+		<div class="left">
+			<a href="/RailsProject/first_test"><%= image_tag 'header.png', :class => 'header' %></a>
+			<%= image_tag 'logo.png', :class => 'logo' %>
+		</div>
+		<div class="right">
+			<% if @user == nil or !@user.id %>
+			<a href="/RailsProject/user/login">login</a>
+			<% end %>
+			<% if @user != nil and @user.id %>
+			<a href="/RailsProject/user/logout">logout</a>
+			<% end %>
+		</div>
 	</div>
 	<div id="main">
 		<%= yield %>

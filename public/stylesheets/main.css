@@ -6,17 +6,24 @@ body
 	font-family: arial, helvetica;
 }
 
+img
+{
+	border: 0;
+}
+
 #header
 {
-  height: 60px;
-  color: #fff;
+	height: 60px;
+	color: #fff;
 	background-color: #2E2E2E;
 	border-bottom: solid 1px #2b2b2b;
+
+	padding-left: 60px;
+	padding-right: 40px;
 }
 
 #header img.header
 {
-  padding-left: 60px;
 	padding-bottom: 12px;
 }
 
@@ -26,12 +33,54 @@ body
 	padding-top: 6px;
 }
 
+#header div.left
+{
+	float: left;
+}
+
+#header div.right
+{
+	padding-top: 30px;
+	float: right;
+}
+
 #main
 {
-  color: #fff;
+	clear: both;
+	color: #fff;
+	margin-left: 40px;
+	margin-top: 40px;
 }
 
 div.note
 {
   background-color: #e6e394;
+}
+
+#login
+{
+  padding: 20px;
+  width: 354px;
+  border: solid 8px #444;
+  background-color: #555;
+}
+
+#login div.error
+{
+  color: #00ff00;
+  padding-left: 6px;
+  padding-bottom: 6px;
+}
+
+#login div.message
+{
+  padding-left: 6px;
+  padding-bottom: 6px;
+  color: #00ff00;
+}
+
+h1, h2
+{
+  padding: 0px;
+  margin: 0px;
 }
