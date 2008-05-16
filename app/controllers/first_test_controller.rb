@@ -13,7 +13,6 @@ class FirstTestController < ApplicationController
                         :conditions => ['user_id = ?', @user.id], :order => 'text ASC')
 	end
 
-	# GET /tags/1
 	def tags
 		@notes_array = Note.find(:all,
                         :conditions => "user_id = #{@user.id}",
