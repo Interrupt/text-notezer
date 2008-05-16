@@ -1,4 +1,6 @@
 class NotesController < ApplicationController
+  before_filter :admin_required
+
   # GET /notes
   # GET /notes.xml
   def index
