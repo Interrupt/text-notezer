@@ -11,23 +11,11 @@
 
 ActiveRecord::Schema.define(:version => 5) do
 
-  create_table "notebooks", :force => true do |t|
-    t.string  "name"
-    t.integer "user_id"
-  end
-
   create_table "notes", :force => true do |t|
     t.string   "note"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "notebook_id"
-  end
-
-  create_table "tags", :force => true do |t|
-    t.string  "text"
-    t.integer "user_id"
-    t.integer "note_id"
   end
 
   create_table "users", :force => true do |t|
@@ -35,8 +23,6 @@ ActiveRecord::Schema.define(:version => 5) do
     t.string   "password"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "email"
-    t.string   "sms"
   end
 
 end

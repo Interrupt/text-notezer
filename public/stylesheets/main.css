@@ -2,10 +2,7 @@ body
 {
 	margin: 0;
 	padding: 0;
-	background-color: #e6ffa2;
-	background-image: url('../images/bg_gradient.png');
-	background-repeat: repeat-x;
-	background-attachment: fixed;
+	background-color: #383838;
 	font-family: arial, helvetica;
 }
 
@@ -19,16 +16,10 @@ img
 	height: 60px;
 	color: #fff;
 	background-color: #2E2E2E;
-	border-bottom: solid 4px #2b2b2b;
+	border-bottom: solid 1px #2b2b2b;
 
-	padding-top: 4px;
-	padding-left: 30px;
+	padding-left: 60px;
 	padding-right: 40px;
-
-	width: 620px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 30px;
 }
 
 #header img.header
@@ -57,111 +48,26 @@ img
 {
 	clear: both;
 	color: #fff;
-	background-color: #383838;
-	padding-left: 30px;
-	padding-top: 16px;
-	padding-bottom: 20px;
-
-	width: 660px;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-#footer
-{
-	background-color: #2E2E2E;
-        padding-left: 30px;
-        padding-top: 4px;
-        padding-bottom: 6px;
-	color: #666;
-        width: 660px;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 30px;
-}
-
-div.note_wrapper
-{
-	background-image: url("../images/note_arrow.png");
-	background-repeat: no-repeat;
-	background-position: 0% 30%;
-	padding-left: 12px;
+	margin-left: 40px;
+	margin-top: 40px;
 }
 
 div.note
 {
-	margin-bottom: 16px;
-	padding-top: 2px;
-	padding-bottom: 4px;
-	padding-left: 6px;
-	padding-right: 6px;
-	
-	background-color: #f5f2a8;
-	color: #000;
-	width: 440px;
-  
-	border-bottom: solid 1px #2E2E2E;
-	border-right: solid 1px #2E2E2E;
-}
-
-div.note a
-{
-	font-size: 0.9em;
-	color: #9E9C6C;
-}
-
-div.note a.note_link
-{
-	font-size: 1.0em;
-	color: #000;
-}
-
-div.note a.tag
-{
-        color: #78bdb5;
-}
-
-div.note a:hover
-{
-	color: #59A4ED;
-
+  background-color: #e6e394;
 }
 
 #login
 {
   padding: 20px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 100px;
   width: 354px;
   border: solid 8px #444;
   background-color: #555;
 }
 
-#main_container
-{
-	float: left;
-}
-
-#notes_container
-{
-	margin-top: 10px;/
-}
-
-#tags_container
-{
-	float: right;
-	width: 160px;
-}
-
-#clear_helper
-{
-	clear: both;
-}
-
 #login div.error
 {
-  color: #baff00;
+  color: #00ff00;
   padding-left: 6px;
   padding-bottom: 6px;
 }
@@ -170,130 +76,11 @@ div.note a:hover
 {
   padding-left: 6px;
   padding-bottom: 6px;
-  color: #baff00;
+  color: #00ff00;
 }
 
 h1, h2
 {
-  color: #baff00;
   padding: 0px;
-  margin-top: 0px;
-  margin-bottom: 10px;
-}
-
-a
-{
-	color: #78bdb5;
-	text-decoration: none;
-}
-
-a:hover
-{
-	color: #fff;
-	text-decoration: underline;
-}
-
-span.tags
-{
-	font-size: 0.9em;
-	color: #59A4ED;
-	color: #78bdb5;
-}
-
-#tags_container h2
-{
-	margin: 0;
-	padding-left: 0;
-	padding-right: 0;
-	padding-top: 0;
-	padding-bottom: 10px;
-}
-
-#tags_container ul, li
-{
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-#tags_container li
-{
-	padding-top: 2px;
-	padding-bottom: 4px;
-	border-bottom: solid 1px #333;
-	border-top: solid 1px #444;
-	width: 145px;
-}
-
-#tags_container a
-{
-	color: #fff;
-}
-
-#tags_container a.selected
-{
-        color: #78bdb5;
-	color: #baff00;
-}
-
-
-span.list_bullet
-{
-	color: #78bdb5;
-}
-
-span.list_bullet_important
-{
-	color: #ff9c00;
-}
-
-#new_note_form
-{
-	padding: 10px;
-	margin-top: 10px;
-	margin-bottom: 16px;
-	width: 436px;
-	border: solid 4px #444;
-	background-color: #555;
-}
-
-#new_note_form textarea
-{
-	width: 430px;
-	margin-bottom: 8px;
-}
-
-#new_note_form input.text
-{
-	width: 384px;
-	margin-bottom: 8px;
-}
-
-#new_note_form div.tag_label
-{
-	float: left;
-	width: 40px;
-}
-
-#new_note_form div.tag_area
-{
-	float: right;
-	width: 390px;
-}
-
-/* Account controller styles
----------------------*/
-#account_form
-{
-	margin-top: 20px;
-	padding-top: 12px;
-	padding-left: 20px;
-	padding-right: 20px;
-        border: solid 4px #444;
-        background-color: #555;
-}
-
-#account_form h3
-{
-	margin-top: 0;
+  margin: 0px;
 }

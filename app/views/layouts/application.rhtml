@@ -4,9 +4,8 @@
 <html>
 <head>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-	<title>notezer</title>
+	<title>Text Notezer</title>
 	<%= stylesheet_link_tag 'main' %>
-	<%= javascript_include_tag :defaults %>
 </head>
 <body>
 	<div id="header">
@@ -16,21 +15,15 @@
 		</div>
 		<div class="right">
 			<% if @user == nil or !@user.id %>
-			<a href="/RailsProject/login/">login</a>
+			<a href="/RailsProject/user/login">login</a>
 			<% end %>
 			<% if @user != nil and @user.id %>
-			<a href="/RailsProject/account/">account</a>
-			&nbsp;&nbsp;&nbsp;
-			<a href="/RailsProject/login/logout">logout</a>
+			<a href="/RailsProject/user/logout">logout</a>
 			<% end %>
 		</div>
 	</div>
 	<div id="main">
 		<%= yield %>
-		<div id="clear_helper"></div>
-	</div>
-	<div id="footer">
-		&copy; 2008 Notezer
 	</div>
 </body>
 </html>
