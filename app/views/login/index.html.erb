@@ -1,0 +1,20 @@
+  <!-- app/views/user/index.rhtml -->
+<div id="login">
+  <h2>Please Login</h2>
+  <% if flash[:message] %><div class="message"><%= flash[:message] %></div><% end %>
+  <% if flash[:error] %><div class="error"><%= flash[:error] %></div><% end %>
+
+  <% form_tag :action => "process_login" do %>
+  <table cellpadding="4px">
+   <tr>
+     <td>Username:</td><td><%= text_field "user", "name" %></td>
+   </tr>
+   <tr>
+     <td>Password:</td><td><%= password_field "user", "password" %></td>
+   </tr>
+   <tr>
+     <td></td><td><%= submit_tag "Login"%></td>
+   </tr>
+  </table>
+  <% end %>
+</div>

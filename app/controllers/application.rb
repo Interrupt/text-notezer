@@ -20,9 +20,29 @@ protected
     return false
   end
 
+  #Check to see if the user is an admin before giving access
+  def admin_required
+  	if @user != nil
+		return true if @user.name == 'chadc'
+	end
+	access_denied
+	return false
+  end
+  
+  def skip_if_logged_in
+  	if @user
+  		redirect_to :controller => 'first_test', :action => 'index'
+  	end
+  end
+
   def access_denied
     session[:return_to] = request.request_uri
+
+    #Display message if they're linking to a deeper page than the index
+    if session[:return_to] != '/RailsProject/'
     flash[:error] = 'Slow your roll! You need to login first to do that.'
-    redirect_to :controller => 'user', :action => 'login'
+    end
+
+    redirect_to :controller => 'login', :action => 'index'
   end
 end

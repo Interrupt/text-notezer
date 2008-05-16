@@ -1,0 +1,15 @@
+<div id="new_note_form">
+<% form_for :note, :update => 'add_note', :url => {:action => 'add_note' } do |f| %>
+<%= f.text_area :note, :size => '49x3' %>
+<br/>
+<div class="tag_label">Tags:</div>
+<div class="tag_area">
+<%= text_field_tag :tags_string, '', { :size => 49, :class => 'text' } %>
+</div>
+<div id="clear_helper"></div>
+<%= submit_tag "Add Note" %>
+-
+<%= link_to_remote "cancel", :update => 'add_note', :url => {:action => 'cancel_note'} %>
+<br />
+<% end %>
+</div>

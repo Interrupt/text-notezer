@@ -1,0 +1,12 @@
+<%= getNoteText(note) %>
+<% if note.tags.length > 0 %>
+<br/>
+<span class="tags">Tags:
+<% for tag in note.tags %>
+	<a class="tag" href="/RailsProject/first_test/tags/<%=h tag.text %>"><%=h tag.text %></a>
+<% end %>
+</span>
+<% end %>
+<br/>
+<%= link_to_remote "edit", :update => "note_#{note.id}", :url => {:action => 'edit_note', :id => note.id} %>
+<%= link_to "delete", { :action => 'delete_note', :id => note.id } %>
