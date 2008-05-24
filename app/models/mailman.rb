@@ -5,11 +5,13 @@ class Mailman < ActionMailer::Base
 		user = User.find_by_email(from) if user == nil
 
 		if user != nil
-			#user.notes.create :note => email.body
 			user.notes.create :note => remove_ending_whitespace(get_text_body(email))
+		else
+			RAILS_DEFAULT_LOGGER.warn('Could not find user with that address')
 		end
 	end
 
+	#Trim ending line breaks from the body, Gmail sends 3
 	def remove_ending_whitespace(string)
 		string = string.chomp
 		string = string.chomp
@@ -18,15 +20,18 @@ class Mailman < ActionMailer::Base
 
 	#Try to return text/plain over text/html bodies
 	def get_text_body(mail)
-		body_text = ''
-		body_html = ''
+		if mail.content_type == "multipart/alternative"
+			body_text = ''
+			body_html = ''
 
-		mail.parts.each do |part|
-			body_text += part.body if part.content_type == "text/plain"
-			body_html += part.body if part.content_type == "text/html"
+			mail.parts.each do |part|
+				body_text += part.body if part.content_type == "text/plain"
+				body_html += part.body if part.content_type == "text/html"
+			end
+
+			return body_text if body_text != ''
+			return body_html
 		end
-
-		return body_text if body_text != ''
-		return body_html
+		return mail.body	#Only one part, so just return the body
 	end
 end

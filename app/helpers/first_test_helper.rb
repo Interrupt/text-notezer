@@ -7,4 +7,8 @@ module FirstTestHelper
 		text.gsub!(/(http|https):\/\/?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?.*)\s*/, '<a class="note_link" href="\0">\0</a>')
 		return text
 	end
+	
+	def makeNotebookTagLink(notebook, tag)
+		link = "<a href=\"?tag=#{tag.text}\">#{tag.text}</a>"
+	end
 end

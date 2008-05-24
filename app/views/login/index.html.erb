@@ -7,13 +7,13 @@
   <% form_tag :action => "process_login" do %>
   <table cellpadding="4px">
    <tr>
-     <td>Username:</td><td><%= text_field "user", "name" %></td>
+     <td>Username:</td><td><%= text_field "user", "name", :class => 'text' %></td>
    </tr>
    <tr>
-     <td>Password:</td><td><%= password_field "user", "password" %></td>
+     <td>Password:</td><td><%= password_field "user", "password", :class => 'password' %></td>
    </tr>
    <tr>
-     <td></td><td><%= submit_tag "Login"%></td>
+     <td></td><td><%= submit_tag "Login", :class => 'button'%></td>
    </tr>
   </table>
   <% end %>

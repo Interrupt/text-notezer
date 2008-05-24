@@ -1,0 +1,57 @@
+<div id="main_container">
+	<% if @notebook != nil %>
+	<h2><%=h @notebook.name %><%=h ": " + @tag_text if @tag_text %></h2>
+	<% elsif @notebook_name = 'unfiled' %>
+	<h2>Unfiled Notes</h2>
+	<% end %>
+
+	<div id="add_note">
+	<%= render :partial => "new_note", :object => nil %>
+	</div>
+
+	<div id="notes_container">
+	<% if @notes != nil and @notes.length > 0 %>
+		<% for note in @notes %>
+			<div class="note_wrapper">
+				<div class="note" id="note_<%=h note.id %>">
+				<%= render :partial => 'note', :object => note %>
+				</div>
+			</div>
+		<% end %>
+	<% else %>
+		<% if @notebook.notes.count <= 0 %>
+		This notebook is empty. Why don't you add a note to it?
+		<% elsif @tag_text == 'unfiled' %>
+		No untagged notes were found, you're very organized!
+		<% else %>
+		No notes were found for tag <%=h @tag_text %>, try another.
+		<% end %>
+	<% end %>
+	</div>
+</div>
+
+<div id="right_container">
+	<div id="notebooks_container">
+		<h2>Notebooks</h2>
+		<%= link_to "Manage notebooks", {:controller => 'manage_notebooks', :action => 'index'}, {:class => "action"} %>
+		<ul>
+			<li><span class="list_bullet_important">&#187;</span> <a href="/RailsProject/first_test/notebook/unfiled">Unfiled</a></span></li>
+			<% for notebook in @user.notebooks %>
+			<li><span class="list_bullet">&#187;</span> <a href="/RailsProject/first_test/notebook/<%=h CGI.escape(notebook.name) %>"><%=h notebook.name %></a></span></li>
+			<% end %>
+		</ul>
+		<br/>
+	</div>
+	<% if @tags != nil and @tags.length > 0 %>
+	<div id="tags_container">
+		<h2>Tags</h2>
+		<a class="action" href="/RailsProject/first_test/notebook/<%=h CGI.escape(@notebook.name) %>">All</a> / 
+		<a class="action" href="?tag=unfiled">Unfiled</a>
+		<ul>
+		  <% for tag in @tags %>
+		  <li><span class="list_bullet">&#187;</span> <%= makeNotebookTagLink(params[:id], tag) %></li>
+		  <% end %>
+		</ul>
+	</div>
+	<% end %>
+</div>

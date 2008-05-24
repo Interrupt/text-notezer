@@ -1,0 +1,10 @@
+<div id="new_note_form">
+	<% form_for :notebook, :update => 'add_notebook', :url => {:action => 'add_notebook' } do |f| %>
+	Notebook name: <%= f.text_field :name, :size => '30' %>
+	<br/>
+	<%= submit_tag "Add Notebook" %>
+	-
+	<%= link_to_remote "cancel", :update => 'add_notebook', :url => {:action => 'cancel_notebook'} %>
+	<br />
+	<% end %>
+</div>

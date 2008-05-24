@@ -127,6 +127,19 @@ div.note a:hover
 
 }
 
+div.note textarea
+{
+	width: 435px;
+	margin-top: 4px;
+	margin-bottom: 6px;
+}
+
+div.note input.text
+{
+	width: 370px;
+	margin-bottom: 6px;
+}
+
 #login
 {
   padding: 20px;
@@ -136,6 +149,32 @@ div.note a:hover
   width: 354px;
   border: solid 8px #444;
   background-color: #555;
+  font-size: 1.05em;
+}
+
+#login input.text
+{
+	width: 240px;
+	height: 20px;
+	font-size: 1.05em;
+}
+
+#login input.password
+{
+	width: 240px;
+	height: 20px;
+}
+
+#login input.button
+{
+	border-right: solid 1px #000;
+	border-bottom: solid 1px #000;
+	border-top: solid 1px #fff;
+	border-left: solid 1px #fff;
+	height: 32px;
+	padding-bottom: 4px;
+	width: 90px;
+	font-size: 1.025em;
 }
 
 #main_container
@@ -148,9 +187,14 @@ div.note a:hover
 	margin-top: 10px;/
 }
 
-#tags_container
+#right_container
 {
 	float: right;
+	width: 160px;
+}
+
+#tags_container
+{
 	width: 160px;
 }
 
@@ -176,6 +220,7 @@ div.note a:hover
 h1, h2
 {
   color: #baff00;
+  color: #fff;
   padding: 0px;
   margin-top: 0px;
   margin-bottom: 10px;
@@ -200,7 +245,7 @@ span.tags
 	color: #78bdb5;
 }
 
-#tags_container h2
+#right_container h2
 {
 	margin: 0;
 	padding-left: 0;
@@ -209,14 +254,14 @@ span.tags
 	padding-bottom: 10px;
 }
 
-#tags_container ul, li
+#right_container ul, li
 {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
 
-#tags_container li
+#right_container li
 {
 	padding-top: 2px;
 	padding-bottom: 4px;
@@ -225,14 +270,21 @@ span.tags
 	width: 145px;
 }
 
-#tags_container a
+#right_container a
 {
 	color: #fff;
 }
 
-#tags_container a.selected
+#right_container a.action
 {
-        color: #78bdb5;
+	font-size: 0.85em;
+	color: #78bdb5;
+	margin-bottom: 8px;
+}
+
+#right_container a.selected
+{
+  color: #78bdb5;
 	color: #baff00;
 }
 
@@ -245,6 +297,7 @@ span.list_bullet
 span.list_bullet_important
 {
 	color: #ff9c00;
+	color: #78bdb5;
 }
 
 #new_note_form
@@ -289,11 +342,52 @@ span.list_bullet_important
 	padding-top: 12px;
 	padding-left: 20px;
 	padding-right: 20px;
-        border: solid 4px #444;
-        background-color: #555;
+	border: solid 4px #444;
+	background-color: #555;
 }
 
 #account_form h3
 {
 	margin-top: 0;
+}
+
+/*----------------------
+Manage Notebooks Section
+------------------------*/
+#manage_notebook_list
+{
+	margin: 0;
+	padding: 0;
+}
+
+div.manage_notebook
+{
+	padding: 0;
+	margin: 0;
+}
+#manage_notebook_list ul li
+{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	text-indent: -1em;
+}
+
+div.manage_notebook ul
+{
+	margin: 0 0 4px 0;
+	padding: 0;
+	text-indent: -1em;
+}
+
+div.manage_notebook li
+{
+	display: inline;
+	margin: 0;
+	padding: 0;
+}
+
+div.manage_notebook li.action
+{
+	font-size: 0.9em;
 }

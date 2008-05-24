@@ -5,7 +5,7 @@ class AddEmailAndPhoneToUser < ActiveRecord::Migration
   end
 
   def self.down
-	drop_column :users, :email
-	drop_column :users, :sms
+	remove_column :users, :email
+	remove_column :users, :sms
   end
 end

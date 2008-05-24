@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 5) do
+ActiveRecord::Schema.define(:version => 8) do
 
   create_table "notebooks", :force => true do |t|
     t.string  "name"
@@ -24,10 +24,15 @@ ActiveRecord::Schema.define(:version => 5) do
     t.integer  "notebook_id"
   end
 
+  create_table "tagged_notes", :force => true do |t|
+    t.integer "note_id"
+    t.integer "tag_id"
+  end
+
   create_table "tags", :force => true do |t|
     t.string  "text"
     t.integer "user_id"
-    t.integer "note_id"
+    t.integer "notebook_id"
   end
 
   create_table "users", :force => true do |t|

@@ -3,8 +3,8 @@
 <%= f.text_area :note, :size => '46x3' %>
 <br/>
 Tags: 
-<%= text_field_tag :tags_string, tag_string, { :size => 46 } %>
-<br />
+<%= text_field_tag :tags_string, tag_string, { :size => 46, :class => 'text' } %>
+<br/>
 <%= submit_tag "Update" %>
 -
 <%= link_to_remote "cancel", :update => "note_#{@note.id}", :url => {:action => 'cancel_edit_note', :id => @note} %>
