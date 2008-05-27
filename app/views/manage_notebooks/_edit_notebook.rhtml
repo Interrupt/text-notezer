@@ -1,0 +1,4 @@
+<ul><li><% form_remote_for :notebook, @notebook, :update => "notebook_#{@notebook.id}", :url => {:action => 'submit_edit_notebook' } do |f| %> <%= f.text_field :name, :size => 30 %>&nbsp; <%= submit_tag "Save" %> or <%= link_to_remote "cancel", :update => "notebook_#{notebook.id}", :url => {:action => 'cancel_edit_notebook', :notebook => notebook.id} %>
+<%= f.hidden_field :id %>
+<% end %>
+</li></ul>

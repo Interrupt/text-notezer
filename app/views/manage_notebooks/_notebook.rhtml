@@ -1,4 +1,5 @@
 <ul>
 	<li class="name"><%=h notebook.name %> </li>
-	<li class="action"><%= link_to 'edit', {:action => 'change_name'}, {:class => 'action'} %></li>
+	<li class="action"><%= link_to_remote 'edit', :url => { :action => :edit_notebook, :notebook => notebook.id } %></li>
+	<li class="action"><%= link_to_remote 'delete', :url => { :action => :delete_notebook, :notebook => notebook.id } %></li>
 </ul>

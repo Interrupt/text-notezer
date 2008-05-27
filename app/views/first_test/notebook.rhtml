@@ -49,7 +49,7 @@
 		<a class="action" href="?tag=unfiled">Unfiled</a>
 		<ul>
 		  <% for tag in @tags %>
-		  <li><span class="list_bullet">&#187;</span> <%= makeNotebookTagLink(params[:id], tag) %></li>
+		  <li><span class="list_bullet">&#187;</span> <%= makeNotebookTagLink(params[:id], tag) %> <span class="tagged_count">(<%=tag.notes.count%>)</span></li>
 		  <% end %>
 		</ul>
 	</div>

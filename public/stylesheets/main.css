@@ -334,7 +334,8 @@ span.list_bullet_important
 	width: 390px;
 }
 
-/* Account controller styles
+/*-------------------
+ Account controller styles
 ---------------------*/
 #account_form
 {
@@ -390,4 +391,14 @@ div.manage_notebook li
 div.manage_notebook li.action
 {
 	font-size: 0.9em;
+}
+
+/*--------------
+Tag Styles
+----------------*/
+span.tagged_count
+{
+	font-size: 0.85em;
+	color: #888;
+	vertical-align: text-top;
 }
