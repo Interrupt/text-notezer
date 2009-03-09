@@ -22,9 +22,9 @@
         <div id="notebooks_container">
                 <h2>Notebooks</h2>
                 <ul>
-                        <li><span class="list_bullet_important">&#187;</span> <a href="/RailsProject/first_test/notebook/unfiled">Unfiled</a></span></li>
+                        <li><span class="list_bullet_important">&#187;</span> <a href="/first_test/notebook/unfiled">Unfiled</a></span></li>
                         <% for notebook in @user.notebooks %>
-                        <li><span class="list_bullet">&#187;</span> <a href="/RailsProject/first_test/notebook/<%=h CGI.escape(notebook.name) %>"><%=h notebook.name %></a></span></li>
+                        <li><span class="list_bullet">&#187;</span> <a href="/first_test/notebook/<%=h CGI.escape(notebook.name) %>"><%=h notebook.name %></a></span></li>
                         <% end %>
                 </ul>
                 <br/>
@@ -32,15 +32,15 @@
 	<div id="tags_container">
 	<h2>Tags</h2>
 	<ul>
-		<li><span class="list_bullet_important">&#187;</span> <a href="/RailsProject">all</a></li>
-		<li><span class="list_bullet_important">&#187;</span> <a href="/RailsProject/first_test/unfiled">unfiled</a></li>
+		<li><span class="list_bullet_important">&#187;</span> <a href="/">all</a></li>
+		<li><span class="list_bullet_important">&#187;</span> <a href="/first_test/unfiled">unfiled</a></li>
 	<% for tag in @tags %>
 		<% if tag.text == @filter_tag.text %>
 		<% @tag_class = 'selected' %>
 		<% else %>
 		<% @tag_class = '' %>
 		<% end %>
-		<li><span class="list_bullet">&#187;</span> <a class = "<%=h @tag_class %>" href="/RailsProject/first_test/tags/<%=h tag.text %>"><%=h tag.text %></a></li>
+		<li><span class="list_bullet">&#187;</span> <a class = "<%=h @tag_class %>" href="/first_test/tags/<%=h tag.text %>"><%=h tag.text %></a></li>
 	<% end %>
 	</ul>
 	</div>

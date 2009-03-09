@@ -56,6 +56,12 @@ class ManageNotebooksController < ApplicationController
 	def delete_notebook
 		@notebook = Notebook.find(params[:notebook])
 		notebook_id = @notebook.id
+		
+		for note in @notebook.notes
+			TaggedNote.delete_all "note_id = #{note.id}"
+			Note.delete(note.id)
+		end
+		
 		Notebook.delete(notebook_id)	
 
 		render :update do |page|

@@ -4,9 +4,9 @@
 	<% end %>
 
 	<div id="add_note">
-	<%= render :partial => "new_note", :object => nil %>
+	<%= render :partial => "new_note" %>
 	</div>
-
+	<h3>Recent notes in all notebooks</h3>
 	<div id="notes_container">
 	<% for note in @notes %>
 		<div class="note_wrapper">
@@ -21,21 +21,13 @@
 <div id="right_container">
 	<div id="notebooks_container">
 		<h2>Notebooks</h2>
-		<%= link_to "Manage notebooks", {:controller => 'manage_notebooks', :action => 'index'}, {:class => "action"} %>
+		<%= link_to "Manage notebooks", {:controller => 'manage_notebooks', :action => 'index'},
+			{:class => "action"} %>
 		<ul>
-			<li><span class="list_bullet_important">&#187;</span> <a href="/RailsProject/first_test/notebook/unfiled">Unfiled</a></span></li>
 			<% for notebook in @user.notebooks %>
-			<li><span class="list_bullet">&#187;</span> <a href="/RailsProject/first_test/notebook/<%=h CGI.escape(notebook.name) %>"><%=h notebook.name %></a></span></li>
+			<li><span class="list_bullet">&#187;</span> <a href="/first_test/notebook/<%=h CGI.escape(notebook.name) %>"><%=h notebook.name %></a></span></li>
 			<% end %>
 		</ul>
 		<br/>
-	</div>
-	<div id="tags_container">
-		<h2>Tags</h2>
-		<ul>
-			<% for tag in @tags %>
-			<li><span class="list_bullet">&#187;</span> <a href="<%=h @base_url %>?tag=<%=h CGI.escape(tag.text) %>"><%=h tag.text %></a></li>
-			<% end %>
-		</ul>
 	</div>
 </div>

@@ -5,7 +5,14 @@ class Mailman < ActionMailer::Base
 		user = User.find_by_email(from) if user == nil
 
 		if user != nil
-			user.notes.create :note => remove_ending_whitespace(get_text_body(email))
+			notebook = Notebook.find_by_name_and_user_id("Unfiled Notes", user.id)
+			
+			#If the user does not have an unfiled notes notebook, make one
+			if notebook == nil
+				notebook = user.notebooks.create :name => "Unfiled Notes"
+			end
+			
+			notebook.notes.create :note => remove_ending_whitespace(get_text_body(email)), :user_id => user.id
 		else
 			RAILS_DEFAULT_LOGGER.warn('Could not find user with that address')
 		end

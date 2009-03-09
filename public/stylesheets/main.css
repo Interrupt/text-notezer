@@ -324,14 +324,28 @@ span.list_bullet_important
 
 #new_note_form div.tag_label
 {
+	clear: both;
 	float: left;
-	width: 40px;
+	padding-top: 2px;
 }
 
 #new_note_form div.tag_area
 {
 	float: right;
-	width: 390px;
+	text-align: right;
+}
+
+#new_note_form div.notebook_label
+{
+	padding-top: 2px;
+	float: left;
+}
+
+#new_note_form div.notebook_area
+{
+	float: right;
+	text-align: right;
+	margin-bottom: 8px;
 }
 
 /*-------------------
@@ -401,4 +415,19 @@ span.tagged_count
 	font-size: 0.85em;
 	color: #888;
 	vertical-align: text-top;
+}
+
+.input
+{
+	font-family: Helvetica Neueu, Arial;
+	font-size: 1.0em;
+	border-top: solid 2px #333;
+	border-left: solid 2px #333;
+	border-bottom: solid 2px #999;
+	border-right: solid 2px #999;
+}
+
+.notebook_field
+{
+	width: 350px;
 }

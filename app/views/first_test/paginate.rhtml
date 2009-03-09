@@ -21,9 +21,9 @@
 <div id="tags_container">
 <h2>Tags</h2>
 <ul>
-	<li><span class="list_bullet">&#187;</span> <a class="selected" href="/RailsProject">all</a></li>
+	<li><span class="list_bullet">&#187;</span> <a class="selected" href="/">all</a></li>
 <% for tag in @tags %>
-	<li><span class="list_bullet">&#187;</span> <a href="/RailsProject/first_test/tags/<%=h tag.text %>"><%=h tag.text %></a></li>
+	<li><span class="list_bullet">&#187;</span> <a href="/first_test/tags/<%=h tag.text %>"><%=h tag.text %></a></li>
 <% end %>
 </ul>
 </div>

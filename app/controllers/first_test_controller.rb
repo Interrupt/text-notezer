@@ -5,26 +5,11 @@ class FirstTestController < ApplicationController
 	def index
 		session[:notebook] = nil
 		
-		#Get notes for notes list
-		if params[:tag] == nil
-			@notes = Note.find(:all,
+		@notes = Note.find(:all,
 				:conditions => "user_id = #{@user.id}",
-				:order => 'id DESC')
-		else
-			#TODO: Refactor this, find also by user_id 
-			@filter_tag = Tag.find_by_text(params[:tag])
-
-			@notes = []
-			for tagged in @filter_tag.tagged_notes
-				@notes.push tagged.note
-			end
-		end
+				:order => 'id DESC', :limit => 12)
 			
-		@base_url = '/RailsProject/first_test'
-
-		#Get tags for tags list
-		@tags = @tag_array = Tag.find(:all, :select => 'distinct tags.text',
-                        :conditions => ['user_id = ?', @user.id], :order => 'text ASC')
+		@base_url = '/first_test'
 	end
 	
 	def notebook
@@ -37,7 +22,7 @@ class FirstTestController < ApplicationController
 		notebook_name = CGI.unescape(params[:id])
 		@tag_text = params[:tag]
 		@notebook = Notebook.find_by_name(notebook_name)
-		@base_url = '/RailsProject/first_test/notebook/' + notebook_name
+		@base_url = '/first_test/notebook/' + notebook_name
 		session[:notebook] = @notebook
 		
 		#init our notes and tags lists for later
@@ -47,7 +32,7 @@ class FirstTestController < ApplicationController
 		if @notebook != nil
 			@tags = @notebook.tags
 			if @tag_text == nil
-				@notes = Note.find(:all, :conditions => ['notebook_id = ?', @notebook.id], :order => 'id DESC')
+				@notes = Note.find(:all, :conditions => ['notebook_id = ?', @notebook.id], :order => 'id DESC', :limit => 12)
 			else
 				@notes = Notebook.get_notes_by_tag(@notebook, @tag_text)
 			end
@@ -126,12 +111,16 @@ class FirstTestController < ApplicationController
 	def add_note
 		@tags = params['tags_string'].split(' ')
 		@notebook = session[:notebook]
+		
+		if @notebook == nil && params['notebook_string'] != nil
+			@notebook = Notebook.find_by_name(params['notebook_string'])
+		end
 			
 		@note = add_note_to_notebook(params[:note], @tags, @notebook)
 		make_note_tags(@note, @tags)
 
 		if @notebook != nil
-			redirect_to '/RailsProject/first_test/notebook/' + CGI.escape(@notebook.name)
+			redirect_to '/first_test/notebook/' + CGI.escape(@notebook.name)
 		else
 			redirect_to :action => 'index'
 		end
@@ -140,8 +129,16 @@ class FirstTestController < ApplicationController
 	def add_note_to_notebook(note_params, tags, notebook)
 		@note = Note.new(note_params)
 		@note.user_id = @user.id
-		@note.notebook_id = notebook.id if notebook != nil
+		
+		#Add the note to the unfiled notes notebook if no notebook is specified
+		if notebook == nil
+			notebook = Notebook.find_by_name_and_user_id("Unfiled Notes", @user.id)
+			notebook = @user.notebooks.create :name => "Unfiled Notes" if notebook == nil
+		end
+		
+		@note.notebook_id = notebook.id
 		@note.save
+		
 		return @note
 	end
 	
@@ -224,7 +221,7 @@ class FirstTestController < ApplicationController
 		@note.destroy
 		
 		if @notebook != nil
-			redirect_to '/RailsProject/first_test/notebook/' + CGI.escape(@notebook.name)
+			redirect_to '/first_test/notebook/' + CGI.escape(@notebook.name)
 		else
 			redirect_to :action => 'index'
 		end

@@ -11,17 +11,17 @@
 <body>
 	<div id="header">
 		<div class="left">
-			<a href="/RailsProject/first_test"><%= image_tag 'header.png', :class => 'header' %></a>
+			<a href="/first_test"><%= image_tag 'header.png', :class => 'header' %></a>
 			<%= image_tag 'logo.png', :class => 'logo' %>
 		</div>
 		<div class="right">
 			<% if @user == nil or !@user.id %>
-			<a href="/RailsProject/login/">login</a>
+			<a href="/login/">login</a>
 			<% end %>
 			<% if @user != nil and @user.id %>
-			<a href="/RailsProject/account/">account</a>
+			<a href="/account/">account</a>
 			&nbsp;&nbsp;&nbsp;
-			<a href="/RailsProject/login/logout">logout</a>
+			<a href="/login/logout">logout</a>
 			<% end %>
 		</div>
 	</div>
@@ -32,5 +32,15 @@
 	<div id="footer">
 		&copy; 2008 Notezer
 	</div>
+
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	var pageTracker = _gat._getTracker("UA-4699464-3");
+	pageTracker._initData();
+	pageTracker._trackPageview();
+	</script>
 </body>
 </html>

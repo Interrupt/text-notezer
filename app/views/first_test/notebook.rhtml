@@ -35,9 +35,8 @@
 		<h2>Notebooks</h2>
 		<%= link_to "Manage notebooks", {:controller => 'manage_notebooks', :action => 'index'}, {:class => "action"} %>
 		<ul>
-			<li><span class="list_bullet_important">&#187;</span> <a href="/RailsProject/first_test/notebook/unfiled">Unfiled</a></span></li>
 			<% for notebook in @user.notebooks %>
-			<li><span class="list_bullet">&#187;</span> <a href="/RailsProject/first_test/notebook/<%=h CGI.escape(notebook.name) %>"><%=h notebook.name %></a></span></li>
+			<li><span class="list_bullet">&#187;</span> <a href="/first_test/notebook/<%=h CGI.escape(notebook.name) %>"><%=h notebook.name %></a></span></li>
 			<% end %>
 		</ul>
 		<br/>
@@ -45,7 +44,7 @@
 	<% if @tags != nil and @tags.length > 0 %>
 	<div id="tags_container">
 		<h2>Tags</h2>
-		<a class="action" href="/RailsProject/first_test/notebook/<%=h CGI.escape(@notebook.name) %>">All</a> / 
+		<a class="action" href="/first_test/notebook/<%=h CGI.escape(@notebook.name) %>">All</a> / 
 		<a class="action" href="?tag=unfiled">Unfiled</a>
 		<ul>
 		  <% for tag in @tags %>

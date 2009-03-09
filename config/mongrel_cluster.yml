@@ -3,4 +3,4 @@ port: "3000"
 environment: development
 pid_file: tmp/pids/mongrel.pid
 servers: 1
-cwd: /srv/rails/text-notezer 
+cwd: /srv/rails/notezer 

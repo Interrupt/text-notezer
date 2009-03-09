@@ -39,7 +39,7 @@ protected
     session[:return_to] = request.request_uri
 
     #Display message if they're linking to a deeper page than the index
-    if session[:return_to] != '/RailsProject/'
+    if session[:return_to] != '/'
     flash[:error] = 'Slow your roll! You need to login first to do that.'
     end
 

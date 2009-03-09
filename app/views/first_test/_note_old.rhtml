@@ -1,7 +1,6 @@
 <%= getNoteText(note) %>
 <% if note.notebook != nil or note.tagged_notes.length > 0 %>
 <br/><span class="tags">
-<%= print_readable_date(note.created_at) %>
 <% if note.notebook != nil %> ago
 in
 <%=h note.notebook.name %>

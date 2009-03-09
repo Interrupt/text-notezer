@@ -9,7 +9,7 @@ class UserController < ApplicationController
     def process_login
       if user = User.authenticate(params[:user])
         session[:id] = user.id # Remember the user's id during this session
-        redirect_to session[:return_to] || '/RailsProject/user/my_account'
+        redirect_to session[:return_to] || '/user/my_account'
       else
         flash[:error] = "Wow, that login didn't work at all. Want to try that again?"
         redirect_to :action => 'login', :name => params[:user][:name]
