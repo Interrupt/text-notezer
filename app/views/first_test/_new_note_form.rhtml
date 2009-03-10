@@ -1,28 +1,15 @@
-<div id="new_note_form">
-	<% if notebook != nil %>
-	<!--Adding note to <%= notebook.name %>-->
-	<% end %>
-	<% form_for :note, :update => 'add_note', :url => {:action => 'add_note' } do |f| %>
-	<%= f.text_area :note, :size => '49x3', :class => 'input' %>
-	<br/>
-	<% if !notebook %>
-	<div class="notebook_label">Notebook:</div>
-	<div class="notebook_area">
-		<% notebook_name = '' %>
-		<% if notebook %>
-		<% notebook_name = notebook.name %>
-		<% end %>
-		<%= text_field_tag :notebook_string, notebook_name, { :size => 30, :class => 'input notebook_field' } %>
-	</div>
-	<% end %>
-	<div class="tag_label">Tags:</div>
-	<div class="tag_area">
-		<%= text_field_tag :tags_string, '', { :size => 49, :class => 'text input' } %>
-	</div>
-	<div id="clear_helper"></div>
-	<%= submit_tag "Add Note" %>
-	-
-	<%= link_to_remote "cancel", :update => 'add_note', :url => {:action => 'cancel_note'} %>
-	<br />
-	<% end %>
+<div class="note_wrapper">
+  <div class="note" id="note_<%=h note.id %>">
+<% form_for :note, :update => 'add_note', :url => {:action => 'add_note' } do |f| %>
+<%= f.hidden_field :id %>
+<%= f.text_area :note, :size => '49x3' %>
+<br/>
+Tags: 
+<%= text_field_tag :tags_string, '', { :size => 46, :class => 'text' } %>
+<br/>
+<%= submit_tag "Add Note" %>
+-
+<%= link_to_remote "cancel", :update => "add_note", :url => {:action => 'cancel_note' } %>
+<% end %>
+  </div>
 </div>

@@ -9,11 +9,7 @@
 	<h3>Recent notes in all notebooks</h3>
 	<div id="notes_container">
 	<% for note in @notes %>
-		<div class="note_wrapper">
-			<div class="note" id="note_<%=h note.id %>">
-			<%= render :partial => 'note', :object => note %>
-			</div>
-		</div>
+          <%= render :partial => 'note_wrapper', :locals => { :note => note } %>
 	<% end %>
 	</div>
 </div>

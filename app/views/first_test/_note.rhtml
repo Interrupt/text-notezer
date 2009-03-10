@@ -1,23 +1,24 @@
-<%= getNoteText(note) %>
-<% if note.notebook != nil or note.tagged_notes.length > 0 %>
-<br/><span class="tags">
-<%= print_readable_date(note.created_at) %>
-<% if note.notebook != nil %> ago
-in
-<%=h note.notebook.name %>
-<% end %>
-<% if note.tagged_notes.length > 0 %>
-- 
-<% for tagged_note in note.tagged_notes %>
+    <%= getNoteText(note) %>
+    <% if note.notebook != nil or note.tagged_notes.length > 0 %>
+    <br/>
+    <span class="tags">
+      <%= print_readable_date(note.created_at) %>
+      <% if note.notebook != nil %> ago
+      in
+      <%=h note.notebook.name %>
+      <% end %>
+      <% if note.tagged_notes.length > 0 %>
+      - 
+      <% for tagged_note in note.tagged_notes %>
 	<% tag = tagged_note.tag %>
 	<% if tag != nil %>
 	<!--<a class="tag" href="/first_test/tags/<%=h tag.text %>"><%=h tag.text %></a>-->
 	<a class="tag" href="<%=h @base_url %><%=h ('/notebook/' + CGI.escape(note.notebook.name)) if note.notebook != nil %>?tag=<%=h tag.text %>"><%=h tag.text %></a>
 	<% end %>
-<% end %>
-<% end %>
-</span>
-<% end %>
-<br/>
-<%= link_to_remote "edit", :update => "note_#{note.id}", :url => {:action => 'edit_note', :id => note.id} %>
-<%= link_to "delete", { :action => 'delete_note', :id => note.id } %>
+      <% end %>
+      <% end %>
+    </span>
+  <% end %>
+  <br/>
+  <%= link_to_remote "edit", :update => "note_#{note.id}", :url => {:action => 'edit_note', :id => note.id} %>
+  <%= link_to "delete", { :action => 'delete_note', :id => note.id } %>

@@ -12,11 +12,7 @@
 	<div id="notes_container">
 	<% if @notes != nil and @notes.length > 0 %>
 		<% for note in @notes %>
-			<div class="note_wrapper">
-				<div class="note" id="note_<%=h note.id %>">
-				<%= render :partial => 'note', :object => note %>
-				</div>
-			</div>
+                  <%= render :partial => 'note_wrapper', :locals => { :note => note } %>
 		<% end %>
 	<% else %>
 		<% if @notebook.notes.count <= 0 %>
