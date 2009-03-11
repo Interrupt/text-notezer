@@ -25,7 +25,7 @@ img
 	padding-left: 30px;
 	padding-right: 40px;
 
-	width: 620px;
+	width: 720px;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 30px;
@@ -51,6 +51,7 @@ img
 {
 	padding-top: 30px;
 	float: right;
+        width: 180px;
 }
 
 #main
@@ -58,11 +59,11 @@ img
 	clear: both;
 	color: #fff;
 	background-color: #383838;
-	padding-left: 30px;
-	padding-top: 16px;
-	padding-bottom: 20px;
+	padding-left: 20px;
+	padding-top: 8px;
+	padding-bottom: 10px;
 
-	width: 660px;
+	width: 770px;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -74,7 +75,7 @@ img
         padding-top: 4px;
         padding-bottom: 6px;
 	color: #666;
-        width: 660px;
+        width: 760px;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 30px;
@@ -98,7 +99,7 @@ div.note
 	
 	background-color: #f5f2a8;
 	color: #000;
-	width: 440px;
+	width: 500px;
   
 	border-bottom: solid 1px #2E2E2E;
 	border-right: solid 1px #2E2E2E;
@@ -129,15 +130,19 @@ div.note a:hover
 
 div.note textarea
 {
-	width: 435px;
+	width: 493px;
 	margin-top: 4px;
 	margin-bottom: 6px;
+        border: solid 1px #ddd;
+        padding: 2px;
 }
 
 div.note input.text
 {
-	width: 370px;
+	width: 450px;
 	margin-bottom: 6px;
+        border: solid 1px #ddd;
+        padding: 2px;
 }
 
 #login
@@ -190,12 +195,12 @@ div.note input.text
 #right_container
 {
 	float: right;
-	width: 160px;
+	width: 220px;
 }
 
 #tags_container
 {
-	width: 160px;
+	width: 220px;
 }
 
 #clear_helper
@@ -267,7 +272,7 @@ span.tags
 	padding-bottom: 4px;
 	border-bottom: solid 1px #333;
 	border-top: solid 1px #444;
-	width: 145px;
+	width: 190px;
 }
 
 #right_container a
@@ -371,40 +376,51 @@ Manage Notebooks Section
 ------------------------*/
 #manage_notebook_list
 {
-	margin: 0;
+	margin: 8px 0 0 0;
 	padding: 0;
 }
 
-div.manage_notebook
+.manage_notebook
 {
 	padding: 0;
-	margin: 0;
+        margin: 0;	
+        height: 1.7em;
 }
+
 #manage_notebook_list ul li
 {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	text-indent: -1em;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        text-indent: 0em;
 }
 
 div.manage_notebook ul
 {
-	margin: 0 0 4px 0;
-	padding: 0;
-	text-indent: -1em;
+        margin: 0 0 4px 0;
+        padding: 0;
+        text-indent: 0;
 }
 
 div.manage_notebook li
 {
-	display: inline;
-	margin: 0;
-	padding: 0;
+        display: inline;
+        margin: 0;
+        padding: 0;
+}
+
+div.manage_notebook li.name
+{
+  display: block;
+  float: left;
+  width: 246px;
 }
 
 div.manage_notebook li.action
 {
-	font-size: 0.9em;
+  display: inline;
+  font-size: 0.9em;
+  clear: left;
 }
 
 /*--------------
@@ -431,3 +447,4 @@ span.tagged_count
 {
 	width: 350px;
 }
+

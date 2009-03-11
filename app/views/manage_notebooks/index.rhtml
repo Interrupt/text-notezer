@@ -3,9 +3,7 @@
 <%= render :partial => "new_notebook", :object => nil %>
 </div>
 <div id="manage_notebook_list">
-	<ul>
-		<% for notebook in @notebooks %>
-		<li><div class="manage_notebook" id="notebook_<%= notebook.id %>"><%= render :partial => "notebook", :object => notebook %></div></li>
-		<% end %>
-	</ul>
+	<% for notebook in @notebooks %>
+	<div class="manage_notebook" id="notebook_<%= notebook.id %>"><%= render :partial => "notebook", :object => notebook %></div>
+	<% end %>
 </div>

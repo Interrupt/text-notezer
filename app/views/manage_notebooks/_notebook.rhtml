@@ -1,5 +1,4 @@
-<ul>
-	<li class="name"><%=h notebook.name %> </li>
-	<li class="action"><%= link_to_remote 'edit', :url => { :action => :edit_notebook, :notebook => notebook.id } %></li>
-	<li class="action"><%= link_to_remote 'delete', :url => { :action => :delete_notebook, :notebook => notebook.id } %></li>
-</ul>
+<ul><li class="name"><%=h notebook.name %></li>
+	<li class="action"><%= link_to_remote 'edit', :url => { :action => :edit_notebook, :notebook => notebook.id } %> &nbsp; </li>
+        <li class="action"><a href="#">share</a> &nbsp; </li>
+	<li class="action"><%= link_to_remote 'delete', :url => { :action => :delete_notebook, :notebook => notebook.id } %></li></ul>
