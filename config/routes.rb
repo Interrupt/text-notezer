@@ -5,6 +5,9 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :account
 
+  map.user 'user/:id', :controller => 'user', :action => 'view'
+  map.user 'user/:id/notebook/:notebook', :controller => 'user', :action => 'notebook'
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
@@ -32,7 +35,7 @@ ActionController::Routing::Routes.draw do |map|
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
   # map.root :controller => "welcome"
-	map.root :controller => 'First_test'
+  map.root :controller => 'main'
 
   # See how all your routes lay out with "rake routes"
 

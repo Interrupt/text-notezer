@@ -1,4 +1,10 @@
 <ul><li class="name"><%=h notebook.name %></li>
 	<li class="action"><%= link_to_remote 'edit', :url => { :action => :edit_notebook, :notebook => notebook.id } %> &nbsp; </li>
-        <li class="action"><a href="#">share</a> &nbsp; </li>
+        <li>
+          <% if notebook.shared_public == nil or notebook.shared_public == false %>
+          <%= link_to_remote 'share', :url => { :action => :toggle_public, :notebook => notebook.id } %>
+          <% else %>
+          <%= link_to_remote 'unshare', :url => { :action => :toggle_public, :notebook => notebook.id } %>
+          <% end %>
+        </li>
 	<li class="action"><%= link_to_remote 'delete', :url => { :action => :delete_notebook, :notebook => notebook.id } %></li></ul>

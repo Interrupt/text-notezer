@@ -20,7 +20,7 @@ class LoginController < ApplicationController
     def logout
       reset_session
       flash[:message] = 'Logged out.'
-      redirect_to :action => 'index'
+      redirect_to :controller => 'main', :action => 'index'
     end
 
     def my_account

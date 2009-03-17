@@ -1,6 +1,8 @@
 <div id="main_container">
 	<% if @user != nil and @user.id %>
 	<h2>Welcome back <%=h @user.name %>!</h2>
+        <% else %>
+          <h2>Keep and share your notebooks online.</h2>
 	<% end %>
 
 	<h3>Recently shared notebooks</h3>
@@ -10,5 +12,6 @@
           <span class="tagged_count">(<%= notebook.notes.count %> notes)</span>
           <br/>
           <% end %>
+          <br/>
 	</div>
 </div>

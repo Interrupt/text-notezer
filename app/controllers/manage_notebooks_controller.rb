@@ -68,4 +68,19 @@ class ManageNotebooksController < ApplicationController
 			page.hide "notebook_#{notebook_id}"
 		end
 	end
+
+        def toggle_public
+          @notebook = Notebook.find(params[:notebook])
+          if @notebook.shared_public == nil
+            @notebook.shared_public = true
+          else
+            @notebook.shared_public = !@notebook.shared_public
+          end
+
+          @notebook.save
+
+          render :update do |page|
+            page.replace_html "notebook_#{params[:notebook]}", :partial => 'notebook', :object => @notebook
+          end
+        end
 end

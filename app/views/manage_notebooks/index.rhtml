@@ -1,3 +1,4 @@
+<div id="main_container">
 <h2>Manage Notebooks</h2>
 <div id="add_notebook">
 <%= render :partial => "new_notebook", :object => nil %>
@@ -6,4 +7,5 @@
 	<% for notebook in @notebooks %>
 	<div class="manage_notebook" id="notebook_<%= notebook.id %>"><%= render :partial => "notebook", :object => notebook %></div>
 	<% end %>
+</div>
 </div>

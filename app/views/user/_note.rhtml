@@ -18,7 +18,4 @@
       <% end %>
       <% end %>
     </span>
-  <% end %>
-  <br/>
-  <%= link_to_remote "edit", :update => "note_#{note.id}", :url => {:action => 'edit_note', :id => note.id} %>
-  <%= link_to "delete", { :action => 'delete_note', :id => note.id }, :confirm => 'Are you sure you want to delete this note?' %>
+    <% end %>

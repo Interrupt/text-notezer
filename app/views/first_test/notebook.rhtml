@@ -25,28 +25,3 @@
 	<% end %>
 	</div>
 </div>
-
-<div id="right_container">
-	<div id="notebooks_container">
-		<h2>Notebooks</h2>
-		<%= link_to "Manage notebooks", {:controller => 'manage_notebooks', :action => 'index'}, {:class => "action"} %>
-		<ul>
-			<% for notebook in @user.notebooks %>
-			<li><span class="list_bullet">&#187;</span> <a href="/first_test/notebook/<%=h CGI.escape(notebook.name) %>"><%=h notebook.name %></a></span></li>
-			<% end %>
-		</ul>
-		<br/>
-	</div>
-	<% if @tags != nil and @tags.length > 0 %>
-	<div id="tags_container">
-		<h2>Tags</h2>
-		<a class="action" href="/first_test/notebook/<%=h CGI.escape(@notebook.name) %>">All</a> / 
-		<a class="action" href="?tag=unfiled">Unfiled</a>
-		<ul>
-		  <% for tag in @tags %>
-		  <li><span class="list_bullet">&#187;</span> <%= makeNotebookTagLink(params[:id], tag) %> <span class="tagged_count">(<%=tag.notes.count%>)</span></li>
-		  <% end %>
-		</ul>
-	</div>
-	<% end %>
-</div>

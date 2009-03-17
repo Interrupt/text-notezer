@@ -4,6 +4,10 @@ class FirstTestController < ApplicationController
   
 	def index
 		session[:notebook] = nil
+        
+          @notebooks = Notebook.find(:all,
+            :conditions => "shared_public = true",
+            :order => 'id DESC', :limit => 20)
 		
 		@notes = Note.find(:all,
 				:conditions => "user_id = #{@user.id}",

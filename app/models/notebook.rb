@@ -21,5 +21,4 @@ class Notebook < ActiveRecord::Base
 		
 		return found_notes.reverse!
 	end
-
 end

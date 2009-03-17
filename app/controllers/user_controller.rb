@@ -1,27 +1,37 @@
 class UserController < ApplicationController
-  before_filter :login_required, :only => :my_account
+  def index
+    redirect_to '/'
+  end
 
-    def login
-      @user = User.new
-      @user.name = params[:name]
+  def view
+    if params[:id] == nil or params[:id] == ''
+      redirect_to '/'
+    end
+    
+    @viewing = User.find_by_name( CGI.unescape(params[:id]) )
+    if @viewing != nil
+      @notes = Note.find(:all,
+        :joins => "INNER JOIN Notebooks ON Notebooks.id=Notes.notebook_id AND Notebooks.shared_public=true",
+        :conditions => { :user_id => @viewing.id },
+        :limit => 15,
+        :order => 'id DESC' )
+    end
+  end
+
+  def notebook
+    if params[:id] == nil or params[:id] == '' \
+      or params[:notebook] == nil or params[:notebook] == ''
+      redirect_to '/'
     end
 
-    def process_login
-      if user = User.authenticate(params[:user])
-        session[:id] = user.id # Remember the user's id during this session
-        redirect_to session[:return_to] || '/user/my_account'
-      else
-        flash[:error] = "Wow, that login didn't work at all. Want to try that again?"
-        redirect_to :action => 'login', :name => params[:user][:name]
-      end
+    @viewing = User.find_by_name( CGI.unescape(params[:id]) )
+    @notebook = Notebook.find(:first, :conditions => { :user_id => @viewing.id, :name => CGI.unescape(params[:notebook]) } )
+    if @notebook != nil
+      @notes = Note.find(:all,
+        :joins => "INNER JOIN Notebooks ON Notebooks.id=#{ @notebook.id } AND Notebooks.id=Notes.notebook_id AND Notebooks.shared_public=true",
+        :conditions => { :user_id => @viewing.id },
+        :limit => 15,
+        :order => 'id DESC' )
     end
-
-    def logout
-      reset_session
-      flash[:message] = 'Logged out.'
-      redirect_to :action => 'login'
-    end
-
-    def my_account
-    end
-  end 
+  end
+end 

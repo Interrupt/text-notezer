@@ -1,0 +1,18 @@
+<!-- app/views/user/view.html.erb -->
+<div id="main_container">
+<% if @viewing != nil %>
+<h1><%=h @viewing.name %>'s public notes</h1>
+  <% if @notes.length > 0 %>
+    <% for note in @notes %>
+  <%= render :partial => 'note_wrapper', :locals => { :note => note } %> 
+    <% end %>
+  <% else %>
+  <b><%=h @viewing.name %></b> doesn't feel like sharing. They haven't shared any notebooks yet.
+  <% end %>
+<% else %>
+<h1>Sorry Dave, I can't let you do that</h1>
+The user you requested doesn't exist, how did you get here?
+<br/>
+<br/>
+<% end %>
+</div>
