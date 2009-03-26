@@ -1,8 +1,9 @@
 <div id="main_container">
 	<% if @user != nil and @user.id %>
-	<h2>Welcome back <%=h @user.name %>!</h2>
+	<h2><span class='splash highlight'>Welcome back <%=h @user.name %>!</span><br/>
+          <span class='splash'>Our goal is to <span class='highlight'>make it easy to do more with</span></span><br/><span class='splash'><span class='highlight'>your notes</span>. Rediscover the power of text.</span></h2>
         <% else %>
-          <h2>Keep and share your notebooks online.</h2>
+          <h2><span class='splash'>Free your notes!</span><br/><span class='splash'>Our goal is to <span class='highlight'>make it easy to do more with</span></span><br/><span class='splash'><span class='highlight'>your notes</span>. Rediscover the power of text.</span></h2>
 	<% end %>
 
 	<h3>Recently shared notebooks</h3>

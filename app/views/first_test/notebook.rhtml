@@ -1,6 +1,7 @@
 <div id="main_container">
 	<% if @notebook != nil %>
-	<h2><%=h @notebook.name %><%=h ": " + @tag_text if @tag_text %></h2>
+	<h2><%=h @notebook.name %><% if @tag_text %>
+        <span class='tag-title'>/ <%=h @tag_text %></span><% end %></h2>
 	<% elsif @notebook_name = 'unfiled' %>
 	<h2>Unfiled Notes</h2>
 	<% end %>

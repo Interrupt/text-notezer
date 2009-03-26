@@ -1,14 +1,7 @@
 <div id="main_container">
-	<% if @user != nil and @user.id %>
-	<h2>Welcome back <%=h @user.name %>!</h2>
-	<% end %>
+	<h2>Recent Activity</h2>
 
-	<h3>Recently shared notebooks</h3>
 	<div id="notes_container">
-          <% for notebook in @notebooks %>
-          <a href="/user/<%= CGI.escape(notebook.user.name) %>/notebook/<%= CGI.escape(notebook.name) %>"><%=h notebook.name %></a> by <%= link_to notebook.user.name, notebook.user %>
-          <span class="tagged_count">(<%= notebook.notes.count %> notes)</span>
-          <br/>
-          <% end %>
+          [TODO: List of recent activity here. New notes, notebooks, etc..]
 	</div>
 </div>

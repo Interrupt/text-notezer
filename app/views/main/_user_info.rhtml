@@ -1,7 +1,7 @@
 <!-- views/main/_user_info.rhtml -->
 <% if @user != nil %>
 <div class="user_info">
-  [Avatar] [Username] 
+  <div class='avatar'>pic</div> <span class='username'><%=h @user.name %></span> 
 </div>
-<br/>
+<br/><br/>
 <% end %>

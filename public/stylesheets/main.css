@@ -184,6 +184,7 @@ div.note input.text
 
 #main_container
 {
+        width: 70%;
 	float: left;
 }
 
@@ -448,3 +449,14 @@ span.tagged_count
 	width: 350px;
 }
 
+.splash { background-color: #111; padding: 2px 4px 2px 4px;
+  color: #07E0A4; }
+
+.highlight { color: #fff; }
+
+.sidebar { }
+
+.username { font-size: 105%; }
+.avatar { float: left; margin-right: 10px;  width: 44px; height: 44px; background-color: white; }
+
+.tag-title { color: #777; }
