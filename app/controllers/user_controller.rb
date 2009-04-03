@@ -11,7 +11,7 @@ class UserController < ApplicationController
     @viewing = User.find_by_name( CGI.unescape(params[:id]) )
     if @viewing != nil
       @notes = Note.find(:all,
-        :joins => "INNER JOIN Notebooks ON Notebooks.id=Notes.notebook_id AND Notebooks.shared_public=true",
+        :joins => "INNER JOIN notebooks ON notebooks.id=notes.notebook_id AND notebooks.shared_public=true",
         :conditions => { :user_id => @viewing.id },
         :limit => 15,
         :order => 'id DESC' )
@@ -28,7 +28,7 @@ class UserController < ApplicationController
     @notebook = Notebook.find(:first, :conditions => { :user_id => @viewing.id, :name => CGI.unescape(params[:notebook]) } )
     if @notebook != nil
       @notes = Note.find(:all,
-        :joins => "INNER JOIN Notebooks ON Notebooks.id=#{ @notebook.id } AND Notebooks.id=Notes.notebook_id AND Notebooks.shared_public=true",
+        :joins => "INNER JOIN notebooks ON notebooks.id=#{ @notebook.id } AND notebooks.id=notes.notebook_id AND notebooks.shared_public=true",
         :conditions => { :user_id => @viewing.id },
         :limit => 15,
         :order => 'id DESC' )

@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(:version => 20090312143149) do
   end
 
   create_table "notes", :force => true do |t|
-    t.text     "note"
+    t.string   "note"
     t.integer  "user_id"
     t.integer  "notebook_id"
     t.datetime "created_at"

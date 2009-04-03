@@ -1,4 +1,4 @@
-<%= render_partial "main/user_info" %>
+<%= render :partial => "main/user_info" %>
 <h2>Your Notebooks</h2>
 <%= link_to "Manage notebooks", {:controller => 'manage_notebooks', :action => 'index'},
   {:class => "action"} %>
