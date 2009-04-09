@@ -2,6 +2,13 @@
 	<h2>Recent Activity</h2>
 
 	<div id="notes_container">
-          [TODO: List of recent activity here. New notes, notebooks, etc..]
-	</div>
+    <% for item in @history %>
+      <% if item.message != nil %>
+        <%=h item.message %>
+      <% else %>
+        Unknown Action
+      <% end %>
+      , <%= print_readable_date(item.created_at) %> ago.<br/> 
+  <% end %>
+  </div>
 </div>

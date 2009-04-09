@@ -8,6 +8,10 @@ class FirstTestController < ApplicationController
           @notebooks = Notebook.find(:all,
             :conditions => "shared_public = true",
             :order => 'id DESC', :limit => 20)
+
+          @history = History.find(:all,
+            :conditions => "user_id = #{@user.id}",
+            :order => 'id DESC', :limit => 20) 
 		
 		@notes = Note.find(:all,
 				:conditions => "user_id = #{@user.id}",
@@ -142,6 +146,8 @@ class FirstTestController < ApplicationController
 		
 		@note.notebook_id = notebook.id
 		@note.save
+
+    @user.histories.create( :message => "Added Note to #{@notebook.name}" )
 		
 		return @note
 	end
@@ -195,6 +201,10 @@ class FirstTestController < ApplicationController
 
 		#Get an updated note object with the new tags	
 		@note = Note.find(@note.id)	
+
+    #Add this to the history
+    @user.histories.create( :message => "Updated Note in #{@note.notebook.name}" )
+
 		render :partial => "note", :locals => {:note => @note }
 	end
 
@@ -225,8 +235,10 @@ class FirstTestController < ApplicationController
 		@note.destroy
 		
 		if @notebook != nil
+      @user.histories.create( :message => "Deleted note from #{@notebook.name}" )
 			redirect_to '/first_test/notebook/' + CGI.escape(@notebook.name)
 		else
+      @user.histories.create( :message => 'Deleted note' )
 			redirect_to :action => 'index'
 		end
 	end
